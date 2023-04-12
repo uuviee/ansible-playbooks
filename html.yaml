@@ -1,0 +1,22 @@
+---
+  - name: creating html.yaml and adding lines
+    hosts: 10.118.0.3
+    tasks: 
+      - name: Creating index.html
+        file: 
+          path: /usr/share/nginx/html/index.html
+          state: touch
+      - name: Adding lines
+        copy: 
+          dest: /usr/share/nginx/html/index.html 
+          content: |
+            <!DOCTYPE html>
+            <html>
+            
+            <body>
+
+            <h1>My Awesome Web Page!</h1>
+            <p>It worked.</p>
+
+            </body>
+            </html>
