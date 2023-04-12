@@ -2,14 +2,14 @@
   - name: creating html.yaml and adding lines
     hosts: 10.118.0.3
     tasks: 
-      - name: Creating html.yaml
+      - name: Creating index.html
         file: 
-          path: /etc/html.yaml
+          path: /usr/share/nginx/html/index.html
           state: touch
       - name: Adding lines
-        blockinfile: 
-          path: /etc/html.yaml
-          block: |
+        copy: 
+          dest: /usr/share/nginx/html/index.html 
+          content: |
             <!DOCTYPE html>
             <html>
             
